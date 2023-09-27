@@ -18,7 +18,7 @@ meta.sendGPTRequest = function(this, text)
         }]],
         success = function(code, body, headers)
             local response = util.JSONToTable(body)
-            PrintTable(response)
+            
             if response and response.choices and response.choices[1] and response.choices[1].message and response.choices[1].message.content then
                 local gptResponse = response.choices[1].message.content
                 this:ChatPrint("[GPT]: "..gptResponse)
