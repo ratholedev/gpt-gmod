@@ -23,7 +23,7 @@ meta.sendGPTRequest = function(this, text)
                 local gptResponse = response.choices[1].message.content
                 this:ChatPrint("[GPT]: "..gptResponse)
             else
-                this:ChatPrint("Error! "..response.error.message)
+                this:ChatPrint((response and response.error and response.error.message) and "Error! "..response.error.message or 'Unknown error!')
             end
         end,
         failed = function(err)
